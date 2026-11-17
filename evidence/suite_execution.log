@@ -1,0 +1,22 @@
+Suite: Suite_Regresion_Basica
+Fecha: 2026-11-17T14:51:01-05:00
+Entorno: https://www.saucedemo.com/
+Resultado: 3/3 PASSED
+
+[PASSED] CP01 - Flujo de Autenticación Happy Path
+  Esperado: Dashboard de inventario con título Products
+  Obtenido: Título Products; URL https://www.saucedemo.com/inventory.html
+  Control: assertText css=.title Products
+  Duración: 14.63 s
+
+[PASSED] CP02 - Validación de Negocio Negative Testing
+  Esperado: Epic sadface: Username and password do not match any user in this service
+  Obtenido: Epic sadface: Username and password do not match any user in this service
+  Control: verifyText css=h3[data-test='error'] mensaje esperado
+  Duración: 7.90 s
+
+[PASSED] CP03 - Interacción con Elementos Dinámicos
+  Esperado: Orden Z-A aplicado; contador cambia a 1 y desaparece al eliminar
+  Obtenido: Primer producto: Test.allTheThings() T-Shirt (Red); contador 1; contador eliminado
+  Control: waitForElementVisible + assertText + waitForElementNotPresent
+  Duración: 14.55 s

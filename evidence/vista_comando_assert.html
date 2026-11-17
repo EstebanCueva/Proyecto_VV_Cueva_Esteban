@@ -1,0 +1,15 @@
+<!doctype html><html lang='es'><head><meta charset='utf-8'>
+<title>Inspección de comando assert</title><style>
+body { margin: 0; background:#eef2f5; font-family: Arial,sans-serif; color:#17212b; }
+.shell { width:1180px; margin:30px auto; background:#fff; border:1px solid #cfd8df; }
+.bar { background:#202124; color:#fff; padding:16px 22px; font-size:18px; font-weight:700; }
+.content { padding:24px 28px 30px; } h1 { font-size:24px; margin:0 0 6px; }
+.sub { color:#52616b; margin-bottom:18px; } table {width:100%; border-collapse:collapse; font-size:14px;}
+th {background:#163b64; color:#fff; padding:10px; text-align:left;} td {border:1px solid #d9e0e6; padding:10px;}
+.assert-row td {background:#e6f4ea; border-color:#82c995;} .assert-row td:nth-child(2) {color:#137333; font-weight:700;}
+code {font-size:13px;} .note {margin-top:16px; color:#52616b; font-size:13px;}
+</style></head><body><div class='shell'><div class='bar'>Proyecto_VV_Cueva_Esteban.side</div><div class='content'>
+<h1>CP01 - Flujo de Autenticación Happy Path</h1><div class='sub'>Comandos almacenados en el archivo Selenium IDE .side</div>
+<table><thead><tr><th>#</th><th>Command</th><th>Target</th><th>Value</th><th>Comentario</th></tr></thead><tbody><tr class=''><td>1</td><td>open</td><td><code>/</code></td><td><code></code></td><td>Abrir la página de autenticación</td></tr><tr class=''><td>2</td><td>type</td><td><code>id=user-name</code></td><td><code>standard_user</code></td><td>Ingresar usuario válido</td></tr><tr class=''><td>3</td><td>type</td><td><code>id=password</code></td><td><code>secret_sauce</code></td><td>Ingresar contraseña válida</td></tr><tr class=''><td>4</td><td>click</td><td><code>id=login-button</code></td><td><code></code></td><td>Enviar credenciales</td></tr><tr class=''><td>5</td><td>waitForElementVisible</td><td><code>css=.title</code></td><td><code>10000</code></td><td>Esperar la carga del dashboard</td></tr><tr class='assert-row'><td>6</td><td>assertText</td><td><code>css=.title</code></td><td><code>Products</code></td><td>Aserción obligatoria del dashboard</td></tr></tbody></table>
+<div class='note'>Vista generada desde el contenido real del proyecto; la fila verde identifica la aserción configurada.</div>
+</div></div></body></html>

@@ -1,0 +1,252 @@
+{
+  "id": "a8aafcbf-f1d4-4eae-b30a-43168cc2f25d",
+  "version": "2.0",
+  "name": "Proyecto_VV_Cueva_Esteban",
+  "url": "https://www.saucedemo.com/",
+  "tests": [
+    {
+      "id": "d25cce2f-3b8a-4a42-9300-5d04ef5f9001",
+      "name": "CP01 - Flujo de Autenticación Happy Path",
+      "commands": [
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-100000000001",
+          "comment": "Abrir la página de autenticación",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-100000000002",
+          "comment": "Ingresar usuario válido",
+          "command": "type",
+          "target": "id=user-name",
+          "targets": [
+            ["id=user-name", "id"],
+            ["css=#user-name", "css:finder"],
+            ["xpath=//input[@id='user-name']", "xpath:attributes"]
+          ],
+          "value": "standard_user"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-100000000003",
+          "comment": "Ingresar contraseña válida",
+          "command": "type",
+          "target": "id=password",
+          "targets": [
+            ["id=password", "id"],
+            ["css=#password", "css:finder"],
+            ["xpath=//input[@id='password']", "xpath:attributes"]
+          ],
+          "value": "secret_sauce"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-100000000004",
+          "comment": "Enviar credenciales",
+          "command": "click",
+          "target": "id=login-button",
+          "targets": [
+            ["id=login-button", "id"],
+            ["css=#login-button", "css:finder"],
+            ["xpath=//input[@id='login-button']", "xpath:attributes"]
+          ],
+          "value": ""
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-100000000005",
+          "comment": "Esperar la carga del dashboard",
+          "command": "waitForElementVisible",
+          "target": "css=.title",
+          "targets": [
+            ["css=.title", "css:finder"],
+            ["xpath=//span[@class='title']", "xpath:attributes"]
+          ],
+          "value": "10000"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-100000000006",
+          "comment": "Aserción obligatoria del dashboard",
+          "command": "assertText",
+          "target": "css=.title",
+          "targets": [
+            ["css=.title", "css:finder"],
+            ["xpath=//span[@class='title']", "xpath:attributes"]
+          ],
+          "value": "Products"
+        }
+      ]
+    },
+    {
+      "id": "d25cce2f-3b8a-4a42-9300-5d04ef5f9002",
+      "name": "CP02 - Validación de Negocio Negative Testing",
+      "commands": [
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-200000000001",
+          "comment": "Abrir la página de autenticación",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-200000000002",
+          "comment": "Ingresar usuario válido",
+          "command": "type",
+          "target": "id=user-name",
+          "targets": [["id=user-name", "id"], ["css=#user-name", "css:finder"]],
+          "value": "standard_user"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-200000000003",
+          "comment": "Ingresar contraseña incorrecta",
+          "command": "type",
+          "target": "id=password",
+          "targets": [["id=password", "id"], ["css=#password", "css:finder"]],
+          "value": "clave_incorrecta"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-200000000004",
+          "comment": "Enviar credenciales inválidas",
+          "command": "click",
+          "target": "id=login-button",
+          "targets": [["id=login-button", "id"], ["css=#login-button", "css:finder"]],
+          "value": ""
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-200000000005",
+          "comment": "Esperar el mensaje de error",
+          "command": "waitForElementVisible",
+          "target": "css=h3[data-test='error']",
+          "targets": [["css=h3[data-test='error']", "css:finder"], ["xpath=//h3[@data-test='error']", "xpath:attributes"]],
+          "value": "10000"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-200000000006",
+          "comment": "Verificación no bloqueante del mensaje esperado",
+          "command": "verifyText",
+          "target": "css=h3[data-test='error']",
+          "targets": [["css=h3[data-test='error']", "css:finder"], ["xpath=//h3[@data-test='error']", "xpath:attributes"]],
+          "value": "Epic sadface: Username and password do not match any user in this service"
+        }
+      ]
+    },
+    {
+      "id": "d25cce2f-3b8a-4a42-9300-5d04ef5f9003",
+      "name": "CP03 - Interacción con Elementos Dinámicos",
+      "commands": [
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000001",
+          "comment": "Abrir la página de autenticación",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000002",
+          "comment": "Ingresar usuario válido",
+          "command": "type",
+          "target": "id=user-name",
+          "targets": [["id=user-name", "id"], ["css=#user-name", "css:finder"]],
+          "value": "standard_user"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000003",
+          "comment": "Ingresar contraseña válida",
+          "command": "type",
+          "target": "id=password",
+          "targets": [["id=password", "id"], ["css=#password", "css:finder"]],
+          "value": "secret_sauce"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000004",
+          "comment": "Enviar credenciales",
+          "command": "click",
+          "target": "id=login-button",
+          "targets": [["id=login-button", "id"], ["css=#login-button", "css:finder"]],
+          "value": ""
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000005",
+          "comment": "Esperar que el inventario esté disponible",
+          "command": "waitForElementVisible",
+          "target": "css=.inventory_list",
+          "targets": [["css=.inventory_list", "css:finder"], ["xpath=//div[@class='inventory_list']", "xpath:attributes"]],
+          "value": "10000"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000006",
+          "comment": "Seleccionar orden descendente por nombre",
+          "command": "select",
+          "target": "css=select[data-test='product-sort-container']",
+          "targets": [["css=select[data-test='product-sort-container']", "css:finder"], ["xpath=//select[@data-test='product-sort-container']", "xpath:attributes"]],
+          "value": "value=za"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000007",
+          "comment": "Validar que el filtro se aplicó",
+          "command": "assertText",
+          "target": "css=.inventory_item:first-child .inventory_item_name",
+          "targets": [["css=.inventory_item:first-child .inventory_item_name", "css:finder"], ["xpath=(//div[@data-test='inventory-item-name'])[1]", "xpath:position"]],
+          "value": "Test.allTheThings() T-Shirt (Red)"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000008",
+          "comment": "Añadir un producto al carrito",
+          "command": "click",
+          "target": "id=add-to-cart-sauce-labs-backpack",
+          "targets": [["id=add-to-cart-sauce-labs-backpack", "id"], ["css=#add-to-cart-sauce-labs-backpack", "css:finder"]],
+          "value": ""
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000009",
+          "comment": "Esperar actualización dinámica del contador",
+          "command": "waitForElementVisible",
+          "target": "css=.shopping_cart_badge",
+          "targets": [["css=.shopping_cart_badge", "css:finder"], ["xpath=//span[@class='shopping_cart_badge']", "xpath:attributes"]],
+          "value": "10000"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000010",
+          "comment": "Confirmar cantidad en el carrito",
+          "command": "assertText",
+          "target": "css=.shopping_cart_badge",
+          "targets": [["css=.shopping_cart_badge", "css:finder"], ["xpath=//span[@class='shopping_cart_badge']", "xpath:attributes"]],
+          "value": "1"
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000011",
+          "comment": "Eliminar el producto añadido",
+          "command": "click",
+          "target": "id=remove-sauce-labs-backpack",
+          "targets": [["id=remove-sauce-labs-backpack", "id"], ["css=#remove-sauce-labs-backpack", "css:finder"]],
+          "value": ""
+        },
+        {
+          "id": "31c5af6e-b1f5-475b-8d69-300000000012",
+          "comment": "Esperar que desaparezca el contador",
+          "command": "waitForElementNotPresent",
+          "target": "css=.shopping_cart_badge",
+          "targets": [["css=.shopping_cart_badge", "css:finder"], ["xpath=//span[@class='shopping_cart_badge']", "xpath:attributes"]],
+          "value": "10000"
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "5fdfe546-3d83-4863-b6d9-4c376fdd65aa",
+      "name": "Suite_Regresion_Basica",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "d25cce2f-3b8a-4a42-9300-5d04ef5f9001",
+        "d25cce2f-3b8a-4a42-9300-5d04ef5f9002",
+        "d25cce2f-3b8a-4a42-9300-5d04ef5f9003"
+      ]
+    }
+  ],
+  "urls": ["https://www.saucedemo.com/"],
+  "plugins": []
+}

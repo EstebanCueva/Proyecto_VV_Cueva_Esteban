@@ -1,0 +1,45 @@
+{
+  "suite": "Suite_Regresion_Basica",
+  "project": "Proyecto_VV_Cueva_Esteban.side",
+  "base_url": "https://www.saucedemo.com/",
+  "executed_at": "2026-11-17T14:51:01-05:00",
+  "browser": "Google Chrome headless",
+  "results": [
+    {
+      "id": "CP01",
+      "name": "Flujo de Autenticación Happy Path",
+      "status": "PASSED",
+      "expected": "Dashboard de inventario con título Products",
+      "obtained": "Título Products; URL https://www.saucedemo.com/inventory.html",
+      "assertion": "assertText css=.title Products",
+      "screenshot": "CP01_login_exitoso.png",
+      "duration_s": 14.63
+    },
+    {
+      "id": "CP02",
+      "name": "Validación de Negocio Negative Testing",
+      "status": "PASSED",
+      "expected": "Epic sadface: Username and password do not match any user in this service",
+      "obtained": "Epic sadface: Username and password do not match any user in this service",
+      "assertion": "verifyText css=h3[data-test='error'] mensaje esperado",
+      "screenshot": "CP02_error_credenciales.png",
+      "duration_s": 7.9
+    },
+    {
+      "id": "CP03",
+      "name": "Interacción con Elementos Dinámicos",
+      "status": "PASSED",
+      "expected": "Orden Z-A aplicado; contador cambia a 1 y desaparece al eliminar",
+      "obtained": "Primer producto: Test.allTheThings() T-Shirt (Red); contador 1; contador eliminado",
+      "assertion": "waitForElementVisible + assertText + waitForElementNotPresent",
+      "screenshot": "CP03_elemento_dinamico_agregado.png",
+      "screenshot_after": "CP03_elemento_dinamico_eliminado.png",
+      "duration_s": 14.55
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0
+  }
+}
